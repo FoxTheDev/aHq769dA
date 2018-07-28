@@ -1014,7 +1014,9 @@ bot.on("message", async message => {
       let strikedstaffchannel = message.guild.channels.find(`name`, "staff-strikes");
       let rUser = message.guild.member(message.mentions.users.first());
       let reason = args.join(" ").slice(22);
-      if(!message.member.hasPermission("MANAGE_ROLES")){
+      if(message.member.roles.some(r=>["Chancellor 🚀", "Councilman 👨‍⚖️", "Lieutenant 🛰️"].includes(r.name)) ) {
+
+      } else {
         message.reply("you do not have the correct permissions to do this!").then(msg => msg.delete(4000));
         return;
       }
@@ -1050,7 +1052,9 @@ bot.on("message", async message => {
       let strikedstaffchannel = message.guild.channels.find(`name`, "staff-strikes");
       let rUser = message.guild.member(message.mentions.users.first());
       let reason = args.join(" ").slice(22);
-      if(!message.member.hasPermission("MANAGE_ROLES")){
+      if(message.member.roles.some(r=>["Chancellor 🚀", "Councilman 👨‍⚖️", "Lieutenant 🛰️"].includes(r.name)) ) {
+
+      } else {
         message.reply("you do not have the correct permissions to do this!").then(msg => msg.delete(4000));
         return;
       }
