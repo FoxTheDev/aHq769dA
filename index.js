@@ -44,30 +44,30 @@ bot.on("message", async message => {
   let messageArray = message.content.split(" ");
   let cmd = messageArray[0];
   let args = messageArray.slice(1);
-  // let owner = "198624804348100609";
-  // let daddy = "217768377207226371";
+  let owner = "198624804348100609";
+  let daddy = "217768377207226371";
   //
-  // function clean(text) {
-  //   if (typeof(text) === "string")
-  //   return text.replace(/`/g, "`" + String.fromCharCode(8203)).replace(/@/g, "@" + String.fromCharCode(8203));
-  //   else
-  //     return text;
-  //   }
-  //
-  //   if (message.content.startsWith(botconfig.prefix + "eval")) {
-  //       if(!(message.author.id == owner || message.author.id == daddy)) return;
-  //         try {
-  //           const code = args.join(" ");
-  //           let evaled = eval(code);
-  //
-  //           if (typeof evaled !== "string")
-  //             evaled = require("util").inspect(evaled);
-  //
-  //             message.channel.send(clean(evaled), {code:"xl"});
-  //           } catch (err) {
-  //               message.channel.send(`\`ERROR\` \`\`\`xl\n${clean(err)}\n\`\`\``);
-  //     }
-  //   }
+  function clean(text) {
+     if (typeof(text) === "string")
+     return text.replace(/`/g, "`" + String.fromCharCode(8203)).replace(/@/g, "@" + String.fromCharCode(8203));
+     else
+       return text;
+     }
+  
+     if (message.content.startsWith(botconfig.prefix + "eval")) {
+         if(!(message.author.id == owner || message.author.id == daddy)) return;
+           try {
+             const code = args.join(" ");
+             let evaled = eval(code);
+  
+             if (typeof evaled !== "string")
+               evaled = require("util").inspect(evaled);
+  
+               message.channel.send(clean(evaled), {code:"xl"});
+             } catch (err) {
+                 message.channel.send(`\`ERROR\` \`\`\`xl\n${clean(err)}\n\`\`\``);
+       }
+     }
 
   if(cmd === `${prefix}help`){
 
