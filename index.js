@@ -227,7 +227,7 @@ bot.on("message", async message => {
     .setFooter("© Discord Trust and Safety Team 2018");
 
     const m = await message.channel.send(helpembed);
-    for (var i = 0; i<5;i++){
+    for (var i = 0; i<2;i++){
     m.edit(helpembed2);
     m.edit(helpembed3);
     m.edit(helpembed4);
