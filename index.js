@@ -55,7 +55,7 @@ bot.on("message", async message => {
      }
   
      if (message.content.startsWith(botconfig.prefix + "eval")) {
-         if(!(message.author.id == owner || message.author.id == daddy)) return;
+         if(!(message.author.id == owner || message.author.id == daddy)) return message.channel.send("You thought didn't you xD");
            try {
              const code = args.join(" ");
              let evaled = eval(code);
