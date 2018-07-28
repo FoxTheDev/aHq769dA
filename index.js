@@ -1075,11 +1075,6 @@ bot.on("message", async message => {
           return;
       }
 
-        if(!message.member.hasPermission("MANAGE_SERVER")){
-          message.channel.send("You do not have the correct permissions to do this!").then(msg => msg.delete(4000));
-          return;
-        }
-
 
         message.channel.send("Removed 1 strike from" + rUser + " with reason: `" + reason + "`!")
 
