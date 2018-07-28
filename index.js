@@ -17,7 +17,7 @@ const bot = new Discord.Client({disableEveryone: true});
 bot.on("ready", async () => {
   console.log(`${bot.user.username} is fighting!`);
     let setStatus = setInterval(function () {
-        var names = ["%help","%clans",`Watching ${bot.users.size} users`];
+        var names = ["%help","%clans",`Watching ${bot.users.size} users`, `The 100`];
         var game = names[Math.floor(Math.random() * names.length)];
        bot.user.setActivity(game,{ type: 'playing' });
      }, 10000)
