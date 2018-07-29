@@ -16,7 +16,7 @@ const bot = new Discord.Client({disableEveryone: true});
 // });
 
 var con = mysql.createConnection({
-  host: "DESKTOP-HKQ9S7I",
+  host: process.env.SQL_IP,
   user: "root",
   password: process.env.SQL_PASS,
   database: "clans"
