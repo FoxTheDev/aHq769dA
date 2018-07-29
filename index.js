@@ -1,7 +1,6 @@
 const botconfig = require("./botconfig.json");
 const Discord = require("discord.js");
 const talkedRecently = new Set();
-const mysql = require ("mysql");
 
 const bot = new Discord.Client({disableEveryone: true});
 
@@ -14,18 +13,6 @@ const bot = new Discord.Client({disableEveryone: true});
 // }
 //   bot.user.setStatus(`online`);
 // });
-
-var con = mysql.createConnection({
-  host: process.env.SQL_IP,
-  user: "root",
-  password: process.env.SQL_PASS,
-  database: "clans"
-});
-
-con.connect(err => {
-  if(err) throw err;
-  console.log("Connected to database!");
-});
 
 bot.on("ready", async () => {
   console.log(`${bot.user.username} is fighting!`);
