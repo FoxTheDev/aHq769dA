@@ -238,16 +238,8 @@ bot.on("message", async message => {
   }
   // m.edit(endingembed)
   }
-  
-  let member = message.member();
-
-  member.kick();
 
   if(cmd === `${prefix}clans`){
-
-   let member = message.member();
-
-  member.kick();
 
     let clansembed = new Discord.RichEmbed()
     .setTitle("__Clans List__")
@@ -260,10 +252,6 @@ bot.on("message", async message => {
   }
 
   if(cmd === `${prefix}join`){
-
- let member = message.member();
-
-  member.kick();
 
     let clans = ["Trikru", "Azgeda", "Skaikru", "Floukru", "Sankru", "Yujleda", "Ouskejonkru", "Delfikru", "Trishanakru", "Podakru", "Ingranronakru", "Boudalankru", "Louwodakliron", "Maungedakru", "Wonkru"]
     let rUser = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
@@ -567,9 +555,7 @@ bot.on("message", async message => {
     }
 
     if(cmd === `${prefix}leave`){
- let member = message.member();
 
-  member.kick();
       let clans = ["Trikru", "Azgeda", "Skaikru", "Floukru", "Sankru", "Yujleda", "Ouskejonkru", "Delfikru", "Trishanakru", "Podakru", "Ingranronakru", "Boudalankru", "Louwodakliron", "Maungedakru", "Wonkru"]
       let rUser = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
       let member = message.member;
@@ -795,9 +781,7 @@ bot.on("message", async message => {
 
 
     if(cmd === `${prefix}report`){
- let member = message.member();
 
-  member.kick();
     message.delete().catch(O_o=>{});
     let reporter = message.author
     let reportschannel = message.guild.channels.find(`name`, "reports");
@@ -921,18 +905,14 @@ bot.on("message", async message => {
 
 
     if(cmd === `${prefix}ping`){
- let member = message.member();
 
-  member.kick();
       const m = await message.channel.send("Pinging...");
       m.edit(`Pong! Latency is **${m.createdTimestamp - message.createdTimestamp}ms**. API Latency is **${Math.round(bot.ping)}ms**.`);
 
 }
 
     if(cmd === `${prefix}suggest`){
- let member = message.member();
 
-  member.kick();
       message.delete();
       let suggestedchannel = message.guild.channels.find(`name`, "suggested-ideas");
       let guild = message.guild;
@@ -970,9 +950,7 @@ bot.on("message", async message => {
 
 
     if(cmd === `${prefix}heal`){
- let member = message.member();
 
-  member.kick();
       let rUser = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
       let healers = message.guild.roles.get("317682783877201921");
       if(message.member.roles.has(healers.id) && (!rUser)){
@@ -993,9 +971,7 @@ bot.on("message", async message => {
 
     if(cmd === `${prefix}fight`){
 
- let member = message.member();
 
-  member.kick();
       let fUser = message.guild.member(message.mentions.users.first());
       let warriors = message.guild.roles.get("317083595045077002");
 
@@ -1033,9 +1009,7 @@ bot.on("message", async message => {
   }
 
     if(cmd === `${prefix}strike`){
- let member = message.member();
 
-  member.kick();
       message.delete().catch(O_o=>{});
       let strikedstaffchannel = message.guild.channels.find(`name`, "staff-strikes");
       let rUser = message.guild.member(message.mentions.users.first());
@@ -1073,9 +1047,7 @@ bot.on("message", async message => {
     }
 
     if(cmd === `${prefix}remove-strike`){
- let member = message.member();
 
-  member.kick();
       message.delete().catch(O_o=>{});
       let strikedstaffchannel = message.guild.channels.find(`name`, "staff-strikes");
       let rUser = message.guild.member(message.mentions.users.first());
@@ -1115,9 +1087,7 @@ bot.on("message", async message => {
     }
 
     if(cmd === `${prefix}craft`){
- let member = message.member();
 
-  member.kick();
       let rUser = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
       let craftsman = message.guild.roles.get("443500634839318530");
 
@@ -1139,9 +1109,7 @@ bot.on("message", async message => {
       }
 
       if(cmd === `${prefix}plant`){
- let member = message.member();
 
-  member.kick();
         let rUser = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
         let farmer = message.guild.roles.get("443499347103973377");
 
@@ -1161,9 +1129,7 @@ bot.on("message", async message => {
       }
 
       if(cmd === `${prefix}harvest`){
- let member = message.member();
 
-  member.kick();
         let rUser = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
         let farmer = message.guild.roles.get("443499347103973377");
 
@@ -1183,9 +1149,7 @@ bot.on("message", async message => {
       }
 
       if(cmd === `${prefix}scout`){
- let member = message.member();
 
-  member.kick();
         let rUser = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
         let scout = message.guild.roles.get("443500346447364117");
 
@@ -1208,9 +1172,7 @@ bot.on("message", async message => {
       }
 
       if(cmd === `${prefix}engineer`){
- let member = message.member();
 
-  member.kick();
         let rUser = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
         let medical = message.guild.roles.get("446804203323523075");
         let electronics = message.guild.roles.get("446804329316352030");
@@ -1300,9 +1262,7 @@ bot.on("message", async message => {
       }
 
       if(cmd === `${prefix}profession-electronics-engineer`){
- let member = message.member();
 
-  member.kick();
         let medical = message.guild.roles.get("446804203323523075");
         let electronics = message.guild.roles.get("446804329316352030");
         let environmental = message.guild.roles.get("446804257035780101");
@@ -1352,9 +1312,7 @@ bot.on("message", async message => {
       }
 
       if(cmd === `${prefix}profession-environmental-engineer`){
- let member = message.member();
 
-  member.kick();
         let medical = message.guild.roles.get("446804203323523075");
         let electronics = message.guild.roles.get("446804329316352030");
         let environmental = message.guild.roles.get("446804257035780101");
@@ -1404,9 +1362,7 @@ bot.on("message", async message => {
       }
 
       if(cmd === `${prefix}profession-structural-engineer`){
- let member = message.member();
 
-  member.kick();
         let medical = message.guild.roles.get("446804203323523075");
         let electronics = message.guild.roles.get("446804329316352030");
         let environmental = message.guild.roles.get("446804257035780101");
@@ -1456,9 +1412,7 @@ bot.on("message", async message => {
       }
 
       if(cmd === `${prefix}profession-systems-engineer`){
- let member = message.member();
 
-  member.kick();
         let medical = message.guild.roles.get("446804203323523075");
         let electronics = message.guild.roles.get("446804329316352030");
         let environmental = message.guild.roles.get("446804257035780101");
@@ -1508,9 +1462,7 @@ bot.on("message", async message => {
       }
 
       if(cmd === `${prefix}help-medical-engineer`){
- let member = message.member();
 
-  member.kick();
         let medical = message.guild.roles.get("446804203323523075");
         let engineer = message.guild.roles.get("443499649341456396");
 
@@ -1528,9 +1480,7 @@ bot.on("message", async message => {
       }
 
       if(cmd === `${prefix}help-electronics-engineer`){
- let member = message.member();
 
-  member.kick();
         let electronics = message.guild.roles.get("446804329316352030");
         let engineer = message.guild.roles.get("443499649341456396");
 
@@ -1548,9 +1498,7 @@ bot.on("message", async message => {
       }
 
       if(cmd === `${prefix}help-environmental-engineer`){
- let member = message.member();
 
-  member.kick();
         let environmental = message.guild.roles.get("446804257035780101");
         let engineer = message.guild.roles.get("443499649341456396");
 
@@ -1568,9 +1516,7 @@ bot.on("message", async message => {
       }
 
       if(cmd === `${prefix}help-structural-engineer`){
- let member = message.member();
 
-  member.kick();
         let structural = message.guild.roles.get("446804539278884864");
         let engineer = message.guild.roles.get("443499649341456396");
 
@@ -1588,9 +1534,7 @@ bot.on("message", async message => {
       }
 
       if(cmd === `${prefix}help-systems-engineer`){
- let member = message.member();
 
-  member.kick();
         let systems = message.guild.roles.get("446804370621726720");
         let engineer = message.guild.roles.get("443499649341456396");
 
@@ -1608,9 +1552,7 @@ bot.on("message", async message => {
       }
 
       if(cmd === `${prefix}systems-check`){
- let member = message.member();
 
-  member.kick();
         let rUser = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
         let systems = message.guild.roles.get("446804370621726720");
         let engineer = message.guild.roles.get("443499649341456396");
@@ -1652,9 +1594,7 @@ bot.on("message", async message => {
       }
 
       if(cmd === `${prefix}fix-alarm-systems`){
- let member = message.member();
 
-  member.kick();
         let rUser = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
         let systems = message.guild.roles.get("446804370621726720");
         let engineer = message.guild.roles.get("443499649341456396");
@@ -1670,9 +1610,7 @@ bot.on("message", async message => {
         }
 
         if(message.member.roles.has(systems.id) && (!rUser)){
- let member = message.member();
 
-  member.kick();
           const m = await message.channel.send("Fixing systems");
           m.edit("Fixing systems.");
           m.edit("Fixing systems..");
@@ -1683,9 +1621,7 @@ bot.on("message", async message => {
       }
 
       if(cmd === `${prefix}fix-security-systems`){
- let member = message.member();
 
-  member.kick();
         let rUser = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
         let systems = message.guild.roles.get("446804370621726720");
         let engineer = message.guild.roles.get("443499649341456396");
@@ -1712,9 +1648,7 @@ bot.on("message", async message => {
       }
 
       if(cmd === `${prefix}fix-communication-systems`){
- let member = message.member();
 
-  member.kick();
         let rUser = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
         let systems = message.guild.roles.get("446804370621726720");
         let engineer = message.guild.roles.get("443499649341456396");
@@ -1741,9 +1675,7 @@ bot.on("message", async message => {
       }
 
       if(cmd === `${prefix}fix-oxygen-systems`){
- let member = message.member();
 
-  member.kick();
         let rUser = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
         let systems = message.guild.roles.get("446804370621726720");
         let engineer = message.guild.roles.get("443499649341456396");
@@ -1770,9 +1702,7 @@ bot.on("message", async message => {
       }
 
       if(cmd === `${prefix}fix-all-systems`){
- let member = message.member();
 
-  member.kick();
         let rUser = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
         let systems = message.guild.roles.get("446804370621726720");
         let engineer = message.guild.roles.get("443499649341456396");
@@ -1803,9 +1733,7 @@ bot.on("message", async message => {
       }
 
       if(cmd === `${prefix}check-in`){
- let member = message.member();
 
-  member.kick();
       message.delete();
       let logchannel = message.guild.channels.find(`name`, "engineer-logs");
       let engineer = message.guild.roles.get("443499649341456396");
@@ -1825,9 +1753,7 @@ bot.on("message", async message => {
       }
 
       if(cmd === `${prefix}log`){
- let member = message.member();
 
-  member.kick();
       message.delete();
       let loggedinfo = args.join(" ").slice(0);
       let logchannel = message.guild.channels.find(`name`, "engineer-logs");
@@ -1851,9 +1777,7 @@ bot.on("message", async message => {
       }
 
   if(cmd === `${prefix}repair`){
- let member = message.member();
 
-  member.kick();
     message.delete();
     let logchannel = message.guild.channels.find(`name`, "engineer-logs");
     let engineer = message.guild.roles.get("443499649341456396");
@@ -1882,9 +1806,7 @@ bot.on("message", async message => {
   }
 
   if(cmd === `${prefix}systems-list`){
- let member = message.member();
 
-  member.kick();
     let rUser = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
     let systems = message.guild.roles.get("446804370621726720");
     let engineer = message.guild.roles.get("443499649341456396");
