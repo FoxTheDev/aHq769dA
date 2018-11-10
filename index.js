@@ -1829,4 +1829,4 @@ bot.on("message", async message => {
 
 
   });
-  bot.login(process.ev.BOT_TOKEN);
+  bot.login(process.env.BOT_TOKEN);
