@@ -17,7 +17,7 @@ const bot = new Discord.Client({disableEveryone: true});
 bot.on("ready", async () => {
   console.log(`${bot.user.username} is fighting!`);
     let setStatus = setInterval(function () {
-        var names = ["%help","%clans",`Watching ${bot.users.size} users`, `The 100`];
+        var names = ["%help","%clans",`Watching ${bot.users.size} users`];
         var game = names[Math.floor(Math.random() * names.length)];
        bot.user.setActivity(game,{ type: 'playing' });
      }, 10000)
@@ -44,30 +44,30 @@ bot.on("message", async message => {
   let messageArray = message.content.split(" ");
   let cmd = messageArray[0];
   let args = messageArray.slice(1);
-  let owner = "198624804348100609";
-  let daddy = "217768377207226371";
+  // let owner = "198624804348100609";
+  // let daddy = "217768377207226371";
   //
-  function clean(text) {
-     if (typeof(text) === "string")
-     return text.replace(/`/g, "`" + String.fromCharCode(8203)).replace(/@/g, "@" + String.fromCharCode(8203));
-     else
-       return text;
-     }
-  
-     if (message.content.startsWith(botconfig.prefix + "eval")) {
-         if(!(message.author.id == owner || message.author.id == daddy)) return message.channel.send("You thought didn't you xD");
-           try {
-             const code = args.join(" ");
-             let evaled = eval(code);
-  
-             if (typeof evaled !== "string")
-               evaled = require("util").inspect(evaled);
-  
-               message.channel.send(clean(evaled), {code:"xl"});
-             } catch (err) {
-                 message.channel.send(`\`ERROR\` \`\`\`xl\n${clean(err)}\n\`\`\``);
-       }
-     }
+  // function clean(text) {
+  //   if (typeof(text) === "string")
+  //   return text.replace(/`/g, "`" + String.fromCharCode(8203)).replace(/@/g, "@" + String.fromCharCode(8203));
+  //   else
+  //     return text;
+  //   }
+  //
+  //   if (message.content.startsWith(botconfig.prefix + "eval")) {
+  //       if(!(message.author.id == owner || message.author.id == daddy)) return;
+  //         try {
+  //           const code = args.join(" ");
+  //           let evaled = eval(code);
+  //
+  //           if (typeof evaled !== "string")
+  //             evaled = require("util").inspect(evaled);
+  //
+  //             message.channel.send(clean(evaled), {code:"xl"});
+  //           } catch (err) {
+  //               message.channel.send(`\`ERROR\` \`\`\`xl\n${clean(err)}\n\`\`\``);
+  //     }
+  //   }
 
   if(cmd === `${prefix}help`){
 
@@ -227,7 +227,7 @@ bot.on("message", async message => {
     .setFooter("© Discord Trust and Safety Team 2018");
 
     const m = await message.channel.send(helpembed);
-    for (var i = 0; i<2;i++){
+    for (var i = 0; i<5;i++){
     m.edit(helpembed2);
     m.edit(helpembed3);
     m.edit(helpembed4);
@@ -1014,9 +1014,7 @@ bot.on("message", async message => {
       let strikedstaffchannel = message.guild.channels.find(`name`, "staff-strikes");
       let rUser = message.guild.member(message.mentions.users.first());
       let reason = args.join(" ").slice(22);
-      if(message.member.roles.some(r=>["Chancellor 🚀", "Councilman 👨‍⚖️", "Lieutenant 🛰️"].includes(r.name)) ) {
-
-      } else {
+      if(!message.member.hasPermission("MANAGE_ROLES")){
         message.reply("you do not have the correct permissions to do this!").then(msg => msg.delete(4000));
         return;
       }
@@ -1052,9 +1050,7 @@ bot.on("message", async message => {
       let strikedstaffchannel = message.guild.channels.find(`name`, "staff-strikes");
       let rUser = message.guild.member(message.mentions.users.first());
       let reason = args.join(" ").slice(22);
-      if(message.member.roles.some(r=>["Chancellor 🚀", "Councilman 👨‍⚖️", "Lieutenant 🛰️"].includes(r.name)) ) {
-
-      } else {
+      if(!message.member.hasPermission("MANAGE_ROLES")){
         message.reply("you do not have the correct permissions to do this!").then(msg => msg.delete(4000));
         return;
       }
@@ -1074,6 +1070,11 @@ bot.on("message", async message => {
           });
           return;
       }
+
+        if(!message.member.hasPermission("MANAGE_SERVER")){
+          message.channel.send("You do not have the correct permissions to do this!").then(msg => msg.delete(4000));
+          return;
+        }
 
 
         message.channel.send("Removed 1 strike from" + rUser + " with reason: `" + reason + "`!")
@@ -1828,4 +1829,4 @@ bot.on("message", async message => {
 
 
   });
-  bot.login(process.env.BOT_TOKEN);
+  bot.login(botconfig.token);
